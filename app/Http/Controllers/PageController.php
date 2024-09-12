@@ -12,7 +12,7 @@ class PageController extends Controller
         $trains = Train::all();
         // dump($trains);
 
-        return view('home');
+        return view('home', compact('trains'));
     }
 
     public function about(){
