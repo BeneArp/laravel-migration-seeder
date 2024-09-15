@@ -9,8 +9,9 @@ class PageController extends Controller
 {
     public function home(){
 
-        $trains = Train::all();
-        // dump($trains);
+        $todayDate = date('Y-m-d');
+
+        $trains = Train::whereDate('departure_date', '=', $todayDate)->get();
 
         return view('home', compact('trains'));
     }
